@@ -33,5 +33,9 @@ pipeline {
             junit 'results/*_result.xml'
              cleanWs()
         }
+        success {
+            echo "La pipeline del proyecto: ${env.JOB_NAME} con el número de ejecución ${env.BUILD_NUMBER} ha fallado"
+            echo "acceda a toda la información en la siguiente URL ${env.BUILD_URL}"
+        }
     }
 }
